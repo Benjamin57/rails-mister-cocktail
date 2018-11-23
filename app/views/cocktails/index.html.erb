@@ -10,7 +10,7 @@
       <div class="col-xs-12 col-md-4">
         <div class="card-item">
           <%= link_to cocktail_path(cocktail) do %>
-            <div class="card-content card-image" style="background-image: url(<%= cocktail.picture_url %>);">
+            <div class="card-content card-image" style="background-image: url('<%= cl_image_path cocktail.photo %>');">
               <div class="card-title">
                 <h4> <%= cocktail.name %></h4>
               </div>
