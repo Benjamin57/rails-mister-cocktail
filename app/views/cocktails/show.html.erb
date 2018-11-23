@@ -2,10 +2,12 @@
   <h1><%= @cocktail.name %></h1>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row" >
     <div class="col-md-8">
       <div class="cocktail-show-card">
-        <%= link_to "Back to Cocktails", cocktails_path, class: "btn btn-primary" %>
+        <h3>Decsription</h3>
+        <p><%= @cocktail.description %></p>
+        <%= link_to "Back to Cocktails", cocktails_path, class: "btn my-btn" %>
       </div>
       <div class="cocktail-show-card">
         <h3>Reviews</h3>
@@ -33,18 +35,18 @@
         <%= simple_form_for [@cocktail, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
-          <%= f.submit "add a review", class: "btn btn-primary" %>
+          <%= f.submit "add a review", class: "btn my-btn" %>
         <% end %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="cocktail-show-card">
-        <h4>Ingredients</h4>
+        <h3>Ingredients</h3>
         <% @cocktail.doses.each do |dose| %>
           <%= dose.ingredient.name %> - <%= dose.description %> <%= link_to "(delete)", dose_delete_path(dose), method: :delete, class: "text-red" %>
         <% end %>
         <br>
-        <%= link_to "Add a dose",  new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+        <%= link_to "Add a dose",  new_cocktail_dose_path(@cocktail), class: "btn my-btn" %>
       </div>
     </div>
 

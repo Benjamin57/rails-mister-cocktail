@@ -3,8 +3,10 @@
 </div>
 
 
-<div class="container">
-  <div class="row">
+<div class="container" id="section01">
+  <div class="row" data-aos="fade-in" data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out">
     <h1 class="main-title text-center">Cocktails</h1>
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-md-4">
@@ -34,8 +36,5 @@
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
