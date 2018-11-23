@@ -1,8 +1,57 @@
-<h1>Cocktails Details</h1>
-<p><%= @cocktail.name %></p>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> <%= dose.ingredient.name %></li>
-  <% end %>
-</ul>
-<%= link_to "Add a new dose",  new_cocktail_dose_path(@cocktail) %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url(<%= @cocktail.picture_url %>);">
+  <h1><%= @cocktail.name %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="cocktail-show-card">
+        <%= link_to "Back to Cocktails", cocktails_path, class: "btn btn-primary" %>
+      </div>
+      <div class="cocktail-show-card">
+        <h3>Reviews</h3>
+        <div class="list-group">
+          <% @cocktail.reviews.each do |review| %>
+            <li class="list-group-item">
+              <small>
+                <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fas fa-star"></i>
+                  <% else %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  <% count += 1 %>
+                <% end %>
+              </small>
+              <p><%= review.content %></p>
+            </li>
+          <% end %>
+        </div>
+      </div>
+      <div class="cocktail-show-card">
+        <h2>Add a new Review</h2>
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.submit "add a review", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="cocktail-show-card">
+        <h4>Ingredients</h4>
+        <!-- TODO FIX DELETE -->
+        <% @cocktail.doses.each do |dose| %>
+          <%= dose.ingredient.name %> - <%= dose.description %> <%= link_to "(delete)", dose_delete_path(dose), method: :delete, class: "text-red" %>
+        <% end %>
+        <br>
+        <%= link_to "Add a dose",  new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

@@ -15,6 +15,15 @@
   height: 50px;
 }
 
+.btn.my-btn {
+  border-color: #308edc;
+
+  &:hover {
+    background: #308edc;
+    color:white;
+  }
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
