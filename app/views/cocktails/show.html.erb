@@ -40,7 +40,6 @@
     <div class="col-md-4">
       <div class="cocktail-show-card">
         <h4>Ingredients</h4>
-        <!-- TODO FIX DELETE -->
         <% @cocktail.doses.each do |dose| %>
           <%= dose.ingredient.name %> - <%= dose.description %> <%= link_to "(delete)", dose_delete_path(dose), method: :delete, class: "text-red" %>
         <% end %>
