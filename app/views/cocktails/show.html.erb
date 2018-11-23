@@ -43,7 +43,7 @@
       <div class="cocktail-show-card">
         <h3>Ingredients</h3>
         <% @cocktail.doses.each do |dose| %>
-          <%= dose.ingredient.name %> - <%= dose.description %> <%= link_to "(delete)", dose_delete_path(dose), method: :delete, class: "text-red" %>
+          <%= dose.ingredient.name %> - <%= dose.description %> <%= link_to "(delete)", dose_delete_path(dose), method: :delete, class: "text-red" %> <br>
         <% end %>
         <br>
         <%= link_to "Add a dose",  new_cocktail_dose_path(@cocktail), class: "btn my-btn" %>
